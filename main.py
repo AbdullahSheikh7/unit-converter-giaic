@@ -17,7 +17,10 @@ with st.container():
   to_units.remove(from_unit)
   to_unit = st.selectbox("To Unit", to_units)
 
-value = st.number_input(f"Enter value in {from_unit}", min_value=0.0, format="%.2f")
+if category == "Temperature":
+  value = st.number_input(f"Enter value in {from_unit}", format="%.2f")
+else:
+  value = st.number_input(f"Enter value in {from_unit}", min_value=0.0, format="%.2f")
 
 def convert(value, from_unit, to_unit, category):
   if category == "Length":
