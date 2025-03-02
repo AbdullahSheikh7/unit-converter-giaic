@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("Google Unit Converter - Powered by Streamlit")
+st.markdown("# Unit Converter - [Abdullah Sheikh](https://github.com/AbdullahSheikh7)")
 
 category = st.selectbox("Select Category", ["Length", "Weight", "Temperature"])
 
@@ -11,16 +11,11 @@ elif category == "Weight":
 else:
   units = ["Celsius", "Fahrenheit", "Kelvin"]
 
-with st.container(key="units"):
+with st.container():
   from_unit = st.selectbox("From Unit", units)
   to_units = units
   to_units.remove(from_unit)
   to_unit = st.selectbox("To Unit", to_units)
-
-st.html("""<style>
-  .st-key-units {
-  }
-</style>""")
 
 value = st.number_input(f"Enter value in {from_unit}", min_value=0.0, format="%.2f")
 
