@@ -11,10 +11,16 @@ elif category == "Weight":
 else:
   units = ["Celsius", "Fahrenheit", "Kelvin"]
 
-with st.container():
+col1, col2 = st.columns(2)
+
+to_units = units
+
+with col1:
   from_unit = st.selectbox("From Unit", units)
-  to_units = units
-  to_units.remove(from_unit)
+
+to_units.remove(from_unit)
+
+with col2:
   to_unit = st.selectbox("To Unit", to_units)
 
 if category == "Temperature":
